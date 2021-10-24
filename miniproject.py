@@ -45,7 +45,8 @@ def cartoonization (img, cartoon):
         edges_inv = 255-edges
     
         dummy, cartoon = cv2.threshold(edges_inv, noise_reduction, 255, cv2.THRESH_BINARY)
-    
+        
+
     if cartoon == "Bilateral Filter":
         
         
@@ -60,6 +61,7 @@ def cartoonization (img, cartoon):
     
         color = cv2.bilateralFilter(img, smooth, edge_preserve, smooth) 
         cartoon = cv2.bitwise_and(color, color, mask=edges) 
+
     return cartoon
 
 ###############################################################################
